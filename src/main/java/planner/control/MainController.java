@@ -19,7 +19,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) { }
 
     @FXML
-    public void switchPanel(ActionEvent event) throws Exception {
+    public void openList(ActionEvent event) throws Exception {
         Pane pane = FXMLLoader.load(getClass().getResource("/ui/plans/list.fxml"));
         content.setCenter(pane);
     }

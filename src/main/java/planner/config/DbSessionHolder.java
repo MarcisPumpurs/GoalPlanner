@@ -27,7 +27,7 @@ public class DbSessionHolder {
 
     private static final String DB_NAME = "goal_planner";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false&serverTimezone=UTC";
-    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     private static final String DB_DIALECT = "org.hibernate.dialect.MySQLDialect";
     private static final String HBM2DDL_AUTO = "validate";

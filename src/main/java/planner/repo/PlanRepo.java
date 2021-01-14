@@ -5,7 +5,7 @@ import planner.ent.Plan;
 
 public class PlanRepo extends CrudRepo<Plan> {
 
-    private static final String HIBERNATE_SELECT_QUERY = "from Book";
+    private static final String HIBERNATE_SELECT_QUERY = "from Plan";
 
     public Plan findOne(Long id) {
         return super.findOne(id, Plan.class);
