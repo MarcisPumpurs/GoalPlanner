@@ -15,8 +15,7 @@
         <columns>
         </columns>
     </TableView>
-    <!-- <RadioButton layoutX="124.0" layoutY="89.0" mnemonicParsing="false" text="Create a new Java project" /> -->
-    <Button fx:id="activatePlanButton" layoutX="98.0" layoutY="217.0" mnemonicParsing="false" onAction="#activatePlan" text="Accept" />
+    <Button fx:id="activatePlanButton" layoutX="98.0" layoutY="217.0" mnemonicParsing="false" onAction="#activatePlan" text="Activate" />
     <Button fx:id="addPlanButton" layoutX="155.0" layoutY="217.0" mnemonicParsing="false" onAction="#addPlan" text="Add new plan" />
 </children>
 </Pane>

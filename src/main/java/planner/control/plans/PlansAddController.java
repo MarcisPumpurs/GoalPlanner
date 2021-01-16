@@ -88,8 +88,8 @@ public class PlansAddController implements Initializable {
         stage.close();
     }
 
-    @FXML
-    private void activatePlan(ActionEvent event){
-
-    }
+//    @FXML
+//    private void activatePlan(ActionEvent event){
+//
+//    }
 }

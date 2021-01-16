@@ -18,21 +18,11 @@ import planner.ent.Plan;
 import planner.repo.PlanRepo;
 import planner.control.view.ViewLoader;
 
-public class PlansController implements Initializable {
+public class ActivePlansController implements Initializable {
 
     private final PlanRepo planRepo = new PlanRepo();
 
     @FXML private TableView<Plan> table;
-
-    @FXML
-    private TextField planId;
-
-    @FXML
-    private void addPlan(ActionEvent event) {
-        PlansAddController controller = (PlansAddController) ViewLoader
-                .load(getClass().getResource("/ui/plans/new_plan_reg_title.fxml"), "Add Plan");
-        controller.addPostOperationCallback(this::populateTable);
-    }
 
     @FXML
     private void editPlan(ActionEvent event) {
@@ -60,29 +50,20 @@ public class PlansController implements Initializable {
         TableColumn<Plan, String> column2 = new TableColumn<>("Name");
         column2.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        //TableColumn<Plan, String> column3 = new TableColumn<>("Status Id");
+        TableColumn<Plan, String> column3 = new TableColumn<>("Status Id");
         //column3.setCellValueFactory(new PropertyValueFactory<>("status_id"));
+        column3.setCellValueFactory(new PropertyValueFactory<>("status_id"));
 
 
         table.getColumns().add(column1);
         table.getColumns().add(column2);
-        //table.getColumns().add(column3);
+        table.getColumns().add(column3);
     }
 
     private void populateTable() {
         ObservableList<Plan> list = FXCollections.observableArrayList();
-        list.addAll(planRepo.findAll());
+        list.addAll(planRepo.findActive());
         table.setItems(list);
-    }
-
-    @FXML
-    private void activatePlan(ActionEvent event){
-        Plan plan = table.getSelectionModel().getSelectedItem();
-        if (plan == null) {
-            return;
-        }
-        plan.setStatus(2L);
-        planRepo.merge(plan);
     }
 
     @FXML
