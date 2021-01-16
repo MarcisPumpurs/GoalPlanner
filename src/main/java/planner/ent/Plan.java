@@ -21,15 +21,15 @@ public class Plan {
     @Column(name = "name")
     private String name;
 
-    //@ManyToOne
-    @Column(name = "status_id")
-    //@JoinColumn(name = "status_id")
-    private Long statusId;
+    //@Column(name = "status_id")
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private Status statusId;
 
     public Plan() {
     }
 
-    public Plan(String name, Long statusId) {
+    public Plan(String name, Status statusId) {
         this.name = name;
         this.statusId = statusId;
     }
@@ -50,11 +50,11 @@ public class Plan {
         this.name = name;
     }
 
-    public Long getStatus() {
-        return statusId;
+    public String getStatus() {
+        return statusId.getName();
     }
 
-    public void setStatus(Long statusId) {
+    public void setStatus(Status statusId) {
         this.statusId = statusId;
     }
 }

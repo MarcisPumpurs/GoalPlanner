@@ -15,7 +15,7 @@
         <columns>
         </columns>
     </TableView>
-    <Button fx:id="activatePlanButton" layoutX="98.0" layoutY="217.0" mnemonicParsing="false" onAction="#activatePlan" text="Activate" />
-    <Button fx:id="addPlanButton" layoutX="155.0" layoutY="217.0" mnemonicParsing="false" onAction="#addPlan" text="Add new plan" />
+    <Button fx:id="activatePlanButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#activatePlan" text="Activate" />
+    <Button fx:id="addPlanButton" layoutX="71.0" layoutY="361.0" mnemonicParsing="false" onAction="#addPlan" text="Add new plan" />
 </children>
 </Pane>

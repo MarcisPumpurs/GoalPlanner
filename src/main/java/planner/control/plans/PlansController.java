@@ -17,10 +17,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import planner.ent.Plan;
 import planner.repo.PlanRepo;
 import planner.control.view.ViewLoader;
+import planner.repo.StatusRepo;
 
 public class PlansController implements Initializable {
 
     private final PlanRepo planRepo = new PlanRepo();
+    private final StatusRepo statusRepo = new StatusRepo();
 
     @FXML private TableView<Plan> table;
 
@@ -81,7 +83,7 @@ public class PlansController implements Initializable {
         if (plan == null) {
             return;
         }
-        plan.setStatus(2L);
+        plan.setStatus(statusRepo.activeStatus());
         planRepo.merge(plan);
     }
 
@@ -91,7 +93,7 @@ public class PlansController implements Initializable {
         if (plan == null) {
             return;
         }
-        plan.setStatus(5L);
+        plan.setStatus(statusRepo.fulfilledStatus());
         planRepo.merge(plan);
     }
 }

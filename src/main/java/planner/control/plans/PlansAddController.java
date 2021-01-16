@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 public class PlansAddController implements Initializable {
 
     private final PlanRepo planRepo = new PlanRepo();
-    private final StatusRepo status = new StatusRepo();
+    private final StatusRepo statusRepo = new StatusRepo();
 
     @FXML
     private TextField name;
@@ -62,7 +62,7 @@ public class PlansAddController implements Initializable {
         }
 
         if (editable == null) {
-            planRepo.save(new Plan(planName, 1L));
+            planRepo.save(new Plan(planName, statusRepo.newStatus()));
         } else {
             Plan plan = planRepo.findOne(editable.getId());
             plan.setName(planName);
