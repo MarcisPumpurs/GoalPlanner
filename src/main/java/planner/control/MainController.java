@@ -23,4 +23,10 @@ public class MainController implements Initializable {
         Pane pane = FXMLLoader.load(getClass().getResource("/ui/plans/list.fxml"));
         content.setCenter(pane);
     }
+
+    @FXML
+    public void openActiveList(ActionEvent event) throws Exception {
+        Pane pane = FXMLLoader.load(getClass().getResource("/ui/plans/activeList.fxml"));
+        content.setCenter(pane);
+    }
 }

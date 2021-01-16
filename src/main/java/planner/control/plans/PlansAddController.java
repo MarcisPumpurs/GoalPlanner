@@ -6,7 +6,8 @@ import java.net.URL;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
-        import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
         import javafx.scene.layout.StackPane;
         import javafx.stage.Stage;
 
@@ -52,12 +53,16 @@ public class PlansAddController implements Initializable {
         String planName = name.getText();
 
         if (planName.isEmpty()) {
-            //TODO: show user alert that all fields have to be filled
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Plāna pievienošana");
+            alert.setHeaderText(null);
+            alert.setContentText("Lūdzu aizpildiet plāna nosaukumu, lai pievienotu to!");
+            alert.showAndWait();
             return;
         }
 
         if (editable == null) {
-            planRepo.save(new Plan(planName, new Status()));
+            planRepo.save(new Plan(planName, 1L));
         } else {
             Plan plan = planRepo.findOne(editable.getId());
             plan.setName(planName);

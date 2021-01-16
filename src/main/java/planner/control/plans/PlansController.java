@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import planner.ent.Plan;
@@ -22,6 +23,9 @@ public class PlansController implements Initializable {
     private final PlanRepo planRepo = new PlanRepo();
 
     @FXML private TableView<Plan> table;
+
+    @FXML
+    private TextField planId;
 
     @FXML
     private void addPlan(ActionEvent event) {
@@ -73,6 +77,13 @@ public class PlansController implements Initializable {
 
     @FXML
     private void activatePlan(ActionEvent event){
+        Plan plan = planRepo.findOne(Long.getLong(planId.getText()));
+        plan.setId(2L);
+        planRepo.merge(plan);
+    }
+
+    @FXML
+    private void fulfillPlan(ActionEvent event){
 
     }
 }

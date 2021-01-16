@@ -18,19 +18,20 @@ public class Plan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long plan_id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private Status status;
+    //@ManyToOne
+    @Column(name = "status_id")
+    //@JoinColumn(name = "status_id")
+    private Long statusId;
 
     public Plan() {
     }
 
-    public Plan(String name, Status status) {
+    public Plan(String name, Long statusId) {
         this.name = name;
-        this.status = status;
+        this.statusId = statusId;
     }
 
     public Long getId() {
@@ -49,11 +50,11 @@ public class Plan {
         this.name = name;
     }
 
-    public Status getStatus() {
-        return status;
+    public Long getStatus() {
+        return statusId;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(Long statusId) {
+        this.statusId = statusId;
     }
 }
