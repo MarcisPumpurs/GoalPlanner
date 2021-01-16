@@ -50,14 +50,13 @@ public class ActivePlansController implements Initializable {
         TableColumn<Plan, String> column2 = new TableColumn<>("Name");
         column2.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        //TableColumn<Plan, String> column3 = new TableColumn<>("Status Id");
-        //column3.setCellValueFactory(new PropertyValueFactory<>("status_id"));
-        //column3.setCellValueFactory(new PropertyValueFactory<>("status_id"));
+        TableColumn<Plan, String> column3 = new TableColumn<>("Status Id");
+        column3.setCellValueFactory(new PropertyValueFactory<>("status"));
 
 
         table.getColumns().add(column1);
         table.getColumns().add(column2);
-        //table.getColumns().add(column3);
+        table.getColumns().add(column3);
     }
 
     private void populateTable() {
