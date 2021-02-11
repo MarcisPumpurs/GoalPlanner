@@ -24,6 +24,6 @@ hs_err_pid*
 
 #IntelliJ Service and Settings Files
 .idea
-target
-out
+target\
+out\
 *.iml
