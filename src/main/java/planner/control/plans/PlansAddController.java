@@ -1,24 +1,24 @@
 package planner.control.plans;
 
 import java.net.URL;
-        import java.util.ResourceBundle;
+import java.util.ResourceBundle;
 
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.Initializable;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-        import javafx.scene.layout.StackPane;
-        import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-        import planner.ent.Plan;
-        import planner.ent.Task;
-        import planner.repo.PlanRepo;
-        import planner.repo.TaskRepo;
-        import planner.ent.Subtask;
-        import planner.repo.SubtaskRepo;
-        import planner.ent.Status;
-        import planner.repo.StatusRepo;
+import planner.ent.Plan;
+import planner.ent.Task;
+import planner.repo.PlanRepo;
+import planner.repo.TaskRepo;
+import planner.ent.Subtask;
+import planner.repo.SubtaskRepo;
+import planner.ent.Status;
+import planner.repo.StatusRepo;
 
 public class PlansAddController implements Initializable {
 
@@ -87,9 +87,4 @@ public class PlansAddController implements Initializable {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
     }
-
-//    @FXML
-//    private void activatePlan(ActionEvent event){
-//
-//    }
 }

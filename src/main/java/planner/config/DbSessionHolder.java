@@ -20,7 +20,13 @@ import static java.util.Arrays.asList;
 
 public class DbSessionHolder {
 
-    private static final List<Class> ENTITIES = asList(User.class, Plan.class, Task.class, Subtask.class, Session.class, Status.class);
+    private static final List<Class> ENTITIES = asList(
+            User.class,
+            Plan.class,
+            Task.class,
+            Subtask.class,
+            Session.class,
+            Status.class);
 
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "Bambino=6";

@@ -16,7 +16,7 @@ public class Plan {
     @Id
     @Column(name = "plan_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long plan_id;
+    private Long planId;
 
     @Column(name = "name")
     private String name;
@@ -35,11 +35,11 @@ public class Plan {
     }
 
     public Long getId() {
-        return plan_id;
+        return planId;
     }
 
     public void setId(Long plan_id) {
-        this.plan_id = plan_id;
+        this.planId = plan_id;
     }
 
     public String getName() {

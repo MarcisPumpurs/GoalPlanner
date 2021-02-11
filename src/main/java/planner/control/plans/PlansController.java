@@ -32,20 +32,7 @@ public class PlansController implements Initializable {
     @FXML
     private void addPlan(ActionEvent event) {
         PlansAddController controller = (PlansAddController) ViewLoader
-                .load(getClass().getResource("/ui/plans/new_plan_reg_title.fxml"), "Add Plan");
-        controller.addPostOperationCallback(this::populateTable);
-    }
-
-    @FXML
-    private void editPlan(ActionEvent event) {
-        Plan plan = table.getSelectionModel().getSelectedItem();
-        if (plan == null) {
-            return;
-        }
-        //TODO ADD /ui/plans/edit_plan.fxml"
-        PlansAddController controller = (PlansAddController) ViewLoader.load(getClass()
-                .getResource("/ui/plans/edit_plan.fxml"), "Edit plan");
-        controller.setEditable(plan);
+                .load(getClass().getResource("/ui/plans/plan_reg.fxml"), "Add Plan");
         controller.addPostOperationCallback(this::populateTable);
     }
 
@@ -84,16 +71,6 @@ public class PlansController implements Initializable {
             return;
         }
         plan.setStatus(statusRepo.activeStatus());
-        planRepo.merge(plan);
-    }
-
-    @FXML
-    private void fulfillPlan(ActionEvent event){
-        Plan plan = table.getSelectionModel().getSelectedItem();
-        if (plan == null) {
-            return;
-        }
-        plan.setStatus(statusRepo.fulfilledStatus());
         planRepo.merge(plan);
     }
 }

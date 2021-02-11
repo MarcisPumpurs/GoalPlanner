@@ -11,9 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import planner.control.tasks.ActiveTasksController;
 import planner.ent.Plan;
 import planner.repo.PlanRepo;
 import planner.control.view.ViewLoader;
@@ -32,11 +32,9 @@ public class ActivePlansController implements Initializable {
         if (plan == null) {
             return;
         }
-        //TODO ADD /ui/plans/edit_plan.fxml"
-        PlansAddController controller = (PlansAddController) ViewLoader.load(getClass()
+        ActiveTasksController controller = (ActiveTasksController) ViewLoader.load(getClass()
                 .getResource("/ui/plans/edit_plan.fxml"), "Edit plan");
         controller.setEditable(plan);
-        controller.addPostOperationCallback(this::populateTable);
     }
 
     @Override
@@ -54,7 +52,6 @@ public class ActivePlansController implements Initializable {
 
         TableColumn<Plan, String> column3 = new TableColumn<>("Status Id");
         column3.setCellValueFactory(new PropertyValueFactory<>("status"));
-
 
         table.getColumns().add(column1);
         table.getColumns().add(column2);

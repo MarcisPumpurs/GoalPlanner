@@ -16,5 +16,6 @@
         </columns>
     </TableView>
     <Button fx:id="fulfillPlanButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#fulfillPlan" text="Fulfill" />
+    <Button fx:id="EditPlanButton" layoutX="64.0" layoutY="361.0" mnemonicParsing="false" onAction="#editPlan" text="Edit" />
 </children>
 </Pane>

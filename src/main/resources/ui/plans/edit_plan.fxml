@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.control.tasks.ActiveTasksController">
+   <children>
+<!--      <Button fx:id="openListBtn" onAction="#close" layoutX="372.0" layoutY="39.0" mnemonicParsing="false" text="My planner list" />-->
+      <!-- <Button layoutX="476.0" layoutY="39.0" mnemonicParsing="false" text="Log out" /> -->
+      <Label layoutX="138.0" layoutY="94.0" text="Tasks:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutY="7.0" prefHeight="345.0" prefWidth="387.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <columns>
+         </columns>
+      </TableView>
+      <Text fx:id="planTitle" layoutX="373.0" layoutY="14.0" text="" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0" />
+      <!-- <Button fx:id="saveBtn" onAction="#save" layoutX="317.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Save" /> -->
+<!--      <Button fx:id="closeBtn" onAction="#close" layoutX="387.0" layoutY="202.0" mnemonicParsing="false" text="Close" />-->
+   </children>
+</AnchorPane>

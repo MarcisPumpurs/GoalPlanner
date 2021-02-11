@@ -26,7 +26,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void openActiveList(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load(getClass().getResource("/ui/plans/activeList.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ui/plans/active_list.fxml"));
         content.setCenter(pane);
     }
 }
