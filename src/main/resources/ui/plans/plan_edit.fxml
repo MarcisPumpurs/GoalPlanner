@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.control.tasks.ActiveTasksController">
+   <children>
+      <Text fx:id="planTitle" layoutX="40.0" layoutY="24.0" text="">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <!-- <Button layoutX="476.0" layoutY="39.0" mnemonicParsing="false" text="Log out" /> -->
+      <TableView fx:id="table" layoutX="8.0" layoutY="33.0" prefHeight="320.0" prefWidth="387.0">
+         <columns>
+         </columns>
+      </TableView>
+      <Button fx:id="openListBtn" layoutX="8.0" layoutY="361.0" mnemonicParsing="false" onAction="#close" text="Close" />
+      <Button fx:id="fulfillBtn" layoutX="64.0" layoutY="361.0" mnemonicParsing="false" onAction="#fulfillTask" text="Fulfill" />
+      <Button fx:id="addTaskBtn" layoutX="118.0" layoutY="361.0" mnemonicParsing="false" onAction="#addTask" text="Add New Task" />
+   </children>
+</AnchorPane>

@@ -13,7 +13,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import planner.control.plans.PlansAddController;
+import planner.control.view.ViewLoader;
 import planner.ent.Plan;
 import planner.ent.Task;
 import planner.repo.StatusRepo;
@@ -25,14 +29,17 @@ public class ActiveTasksController implements Initializable {
     private final StatusRepo statusRepo = new StatusRepo();
     private Plan editablePlan;
 
-    public void setEditable(Plan plan) {
-        this.editablePlan = plan;
-        populateTable();
-    }
-
     @FXML private TableView<Task> table;
 
+    @FXML private AnchorPane rootPane;
+
     @FXML private Text planTitle;
+
+    public void setEditable(Plan plan) {
+        this.editablePlan = plan;
+        planTitle.setText(plan.getName());
+        populateTable();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,6 +80,23 @@ public class ActiveTasksController implements Initializable {
         }
         task.setStatus(statusRepo.fulfilledStatus());
         taskRepo.merge(task);
+        populateTable();
+    }
+
+    @FXML
+    private void addTask(ActionEvent event){
+        TasksAddController controller = (TasksAddController) ViewLoader
+                .load(getClass().getResource("/ui/tasks/task_reg.fxml"), "Add Task");
+        controller.setEditablePlan(editablePlan);
+        controller.addPostOperationCallback(this::populateTable);
+    }
+
+    @FXML
+    private void close(){ closeStage(); }
+
+    private void closeStage() {
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.close();
     }
 
 }

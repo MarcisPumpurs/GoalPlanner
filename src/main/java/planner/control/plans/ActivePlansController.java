@@ -8,11 +8,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import planner.control.tasks.ActiveTasksController;
 import planner.ent.Plan;
 import planner.repo.PlanRepo;
@@ -25,15 +28,16 @@ public class ActivePlansController implements Initializable {
     private final StatusRepo statusRepo = new StatusRepo();
 
     @FXML private TableView<Plan> table;
+    @FXML private BorderPane content;
 
     @FXML
-    private void editPlan(ActionEvent event) {
+    private void editPlan(ActionEvent event) throws Exception {
         Plan plan = table.getSelectionModel().getSelectedItem();
         if (plan == null) {
             return;
         }
         ActiveTasksController controller = (ActiveTasksController) ViewLoader.load(getClass()
-                .getResource("/ui/plans/edit_plan.fxml"), "Edit plan");
+                .getResource("/ui/plans/plan_edit.fxml"), "Edit plan");
         controller.setEditable(plan);
     }
 
@@ -72,6 +76,7 @@ public class ActivePlansController implements Initializable {
         }
         plan.setStatus(statusRepo.fulfilledStatus());
         planRepo.merge(plan);
+        populateTable();
     }
 }
 

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import planner.ent.Plan;
@@ -30,7 +31,11 @@ public class TasksAddController implements Initializable {
 
     @FXML private StackPane rootPane;
 
-    private Plan editable;
+    @FXML private Text planTitle;
+
+    private Task editable;
+
+    private Plan editablePlan;
 
     private Runnable closeDialogCallback;
 
@@ -42,9 +47,9 @@ public class TasksAddController implements Initializable {
         this.closeDialogCallback = callback;
     }
 
-    public void setEditable(Plan plan) {
-        this.editable = plan;
-        this.name.setText(plan.getName());
+    public void setEditable(Task task) {
+        this.editable = task;
+        this.name.setText(task.getName());
     }
 
     @FXML
@@ -61,7 +66,7 @@ public class TasksAddController implements Initializable {
         }
 
         if (editable == null) {
-            taskRepo.save(new Task(taskName, statusRepo.newStatus()));
+            taskRepo.save(new Task(taskName, editablePlan, statusRepo.activeStatus()));
         } else {
             Task task = taskRepo.findOne(editable.getId());
             task.setName(taskName);
@@ -73,7 +78,7 @@ public class TasksAddController implements Initializable {
     }
 
     @FXML
-    private void close(ActionEvent event) {
+    private void cancel(ActionEvent event) {
         closeStage();
     }
 
@@ -85,6 +90,11 @@ public class TasksAddController implements Initializable {
     private void closeStage() {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
+    }
+
+    public void setEditablePlan(Plan editablePlan) {
+        this.editablePlan = editablePlan;
+        planTitle.setText(editablePlan.getName());
     }
 }
 

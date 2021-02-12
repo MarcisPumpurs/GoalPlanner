@@ -4,19 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="rootPane" prefHeight="160.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.control.plans.PlansAddController">
+<StackPane fx:id="rootPane" prefHeight="160.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.control.tasks.TasksAddController">
    <children>
    <AnchorPane id="AnchorPane" fx:id="mainContainer" prefHeight="338.0" prefWidth="464.0" styleClass="custom-pane">
    <children>
-      <Label layoutX="24.0" layoutY="72.0" text="New plan title:">
+      <Text fx:id="planTitle" layoutX="32.0" layoutY="40.0" text="">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Label layoutX="24.0" layoutY="72.0" text="New task title:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <TextField fx:id="name" layoutX="130.0" layoutY="69.0" prefHeight="25.0" prefWidth="240.0" />
       <!-- > <Button layoutX="510.0" layoutY="27.0" mnemonicParsing="false" text="Log out" /> -->
-      <Button fx:id="openListBtn" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancel" text="My planner list" />
-      <Button fx:id="saveBtn" layoutX="270.0" layoutY="102.0" mnemonicParsing="false" onAction="#addPlan" text="Save" />
+      <Button fx:id="saveBtn" layoutX="270.0" layoutY="102.0" mnemonicParsing="false" onAction="#addTask" text="Save" />
       <Button fx:id="cancelBtn" layoutX="318.0" layoutY="102.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
    </children>
    </AnchorPane>

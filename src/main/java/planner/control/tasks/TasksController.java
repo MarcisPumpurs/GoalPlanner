@@ -45,7 +45,7 @@ public class TasksController implements Initializable {
             return;
         }
 //        PlansAddController controller = (PlansAddController) ViewLoader.load(getClass()
-//                .getResource("/ui/plans/edit_plan.fxml"), "Edit plan");
+//                .getResource("/ui/plans/plan_edit.fxml"), "Edit plan");
 //        controller.setEditable(plan);
 //        controller.addPostOperationCallback(this::populateTable);
     }

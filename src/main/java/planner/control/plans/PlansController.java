@@ -72,6 +72,7 @@ public class PlansController implements Initializable {
         }
         plan.setStatus(statusRepo.activeStatus());
         planRepo.merge(plan);
+        populateTable();
     }
 }
 

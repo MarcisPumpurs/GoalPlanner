@@ -33,8 +33,9 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, Status statusId) {
+    public Task(String name, Plan plan,  Status statusId) {
         this.name = name;
+        this.plan = plan;
         this.statusId = statusId;
     }
 
